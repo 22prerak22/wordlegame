@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wordlegame/static/css/main.b0746927.css",
+    "main.js": "/wordlegame/static/js/main.3a62e40c.js",
+    "index.html": "/wordlegame/index.html",
+    "main.b0746927.css.map": "/wordlegame/static/css/main.b0746927.css.map",
+    "main.3a62e40c.js.map": "/wordlegame/static/js/main.3a62e40c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0746927.css",
+    "static/js/main.3a62e40c.js"
+  ]
+}
