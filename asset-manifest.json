@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/wordlegame/static/css/main.b0746927.css",
-    "main.js": "/wordlegame/static/js/main.3a62e40c.js",
+    "main.css": "/wordlegame/static/css/main.05d4bcb7.css",
+    "main.js": "/wordlegame/static/js/main.941e00c0.js",
     "index.html": "/wordlegame/index.html",
-    "main.b0746927.css.map": "/wordlegame/static/css/main.b0746927.css.map",
-    "main.3a62e40c.js.map": "/wordlegame/static/js/main.3a62e40c.js.map"
+    "main.05d4bcb7.css.map": "/wordlegame/static/css/main.05d4bcb7.css.map",
+    "main.941e00c0.js.map": "/wordlegame/static/js/main.941e00c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.b0746927.css",
-    "static/js/main.3a62e40c.js"
+    "static/css/main.05d4bcb7.css",
+    "static/js/main.941e00c0.js"
   ]
 }
