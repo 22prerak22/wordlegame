@@ -7,6 +7,7 @@ const useWordleGame = (WORD_LENGTH = 5, MAX_GUESSES = 6) => {
   const [gameOver, setGameOver] = useState(false);
   const [win, setWin] = useState(false);
   const [message, setMessage] = useState("");
+  const [letterStatuses, setLetterStatuses] = useState({}); // Track letter statuses
 
   const submitGuess = async () => {
     if (currentGuess.length !== WORD_LENGTH) {
@@ -37,6 +38,8 @@ const useWordleGame = (WORD_LENGTH = 5, MAX_GUESSES = 6) => {
       setCurrentGuess("");
       setMessage("");
 
+      updateLetterStatuses(formattedGuess); // Update the letter statuses
+
       if (data.score.every((s) => s === 2)) {
         setWin(true);
         setGameOver(true);
@@ -50,9 +53,30 @@ const useWordleGame = (WORD_LENGTH = 5, MAX_GUESSES = 6) => {
     }
   };
 
+  const updateLetterStatuses = (formattedGuess) => {
+    const newLetterStatuses = { ...letterStatuses };
+
+    formattedGuess.forEach(({ letter, status }) => {
+      if (status === 2) {
+        newLetterStatuses[letter] = "correct"; // Green
+      } else if (status === 1) {
+        // Only update to 'present' if it's not already marked as 'correct'
+        if (newLetterStatuses[letter] !== "correct") {
+          newLetterStatuses[letter] = "present"; // Yellow
+        }
+      } else {
+        // Only update to 'absent' if it's not already marked as 'correct' or 'present'
+        if (!newLetterStatuses[letter]) {
+          newLetterStatuses[letter] = "absent"; // Grey
+        }
+      }
+    });
+
+    setLetterStatuses(newLetterStatuses); // Update state with new statuses
+  };
+
   const handleKeyPress = ({ key }) => {
     if (gameOver) return;
-    console.log(key);
 
     if (key === "Enter") {
       submitGuess();
@@ -71,6 +95,7 @@ const useWordleGame = (WORD_LENGTH = 5, MAX_GUESSES = 6) => {
     setGameOver(false);
     setWin(false);
     setMessage("");
+    setLetterStatuses({}); // Reset letter statuses on restart
   };
 
   return {
@@ -79,6 +104,7 @@ const useWordleGame = (WORD_LENGTH = 5, MAX_GUESSES = 6) => {
     gameOver,
     win,
     message,
+    letterStatuses, // Expose letterStatuses
     handleKeyPress,
     handleRestart,
     submitGuess,

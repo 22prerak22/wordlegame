@@ -2,8 +2,8 @@ import React, { useEffect, useState, useCallback } from "react";
 import Grid from "./components/Grid";
 import useWordleGame from "./hooks/useWordleGame";
 import Modal from "./components/Modal";
-import { motion, AnimatePresence } from "framer-motion";
-import OnscreenKeyboard from "./components/OnscreenKeyboard"; // Import your onscreen keyboard component
+import { motion } from "framer-motion";
+import OnscreenKeyboard from "./components/OnscreenKeyboard";
 import "./App.css";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
     gameOver,
     win,
     message,
+    letterStatuses,
     handleKeyPress,
     handleRestart,
   } = useWordleGame();
@@ -87,8 +88,6 @@ function App() {
       <h3>Try Left - {6 - guesses.length}</h3>
       <Grid guesses={guesses} currentGuess={currentGuess} />
       <p>{message}</p>
-
-      {/* Render Modal conditionally based on `showModal` */}
       {showModal && (
         <Modal
           show={showModal}
@@ -100,7 +99,10 @@ function App() {
 
       {/* Show the onscreen keyboard when the modal is not active */}
       {!showModal && (
-        <OnscreenKeyboard onKeyPress={handleKeyPressFromOnScreenKeyboard} />
+        <OnscreenKeyboard
+          onKeyPress={handleKeyPressFromOnScreenKeyboard}
+          letterStatuses={letterStatuses}
+        />
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-// src/components/Grid.js
 import React from "react";
 import Tile from "./Tile";
 import "./Grid.css";

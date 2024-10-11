@@ -17,26 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #6c757d; /* Neutral gray for button background */
+  background: #393b3e; /* Neutral gray for button background */
   color: white;
   font-size: 1.1rem;
   border-radius: 5px; /* Slightly rounded buttons */
   margin: 5px;
   transition: background 0.3s ease-in-out;
-}
-
-/* Button active state (on click or tap) */
-.simple-keyboard.myTheme1 .hg-button:active {
-  background: #495057; /* Darker gray when button is clicked */
-}
-
-/* Styling for the Enter and Backspace buttons */
-.simple-keyboard.myTheme1 .hg-button.hg-enter {
-  background-color: #28a745; /* Green background for Enter */
-}
-
-.simple-keyboard.myTheme1 .hg-button.hg-backspace {
-  background-color: #dc3545; /* Red background for Backspace */
 }
 
 /* Hover state for buttons */
@@ -45,12 +31,23 @@
   color: white;
 }
 
-/* Style the key preview (if needed) */
-#root .simple-keyboard.myTheme1 + .simple-keyboard-preview {
-  background: #343a40; /* Dark background for preview */
+/* Button styles for correct, present, and absent states */
+.simple-keyboard.hg-layout-default .hg-button.hg-button-correct {
+  background: rgb(106, 170, 100); /* Green */
   color: white;
-  padding: 10px;
-  border-radius: 5px;
+  animation: keychange 0.5s ease both;
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-button-present {
+  background: rgb(201, 180, 88); /* Yellow */
+  color: white;
+  animation: keychange 0.5s ease both; /* Same animation for all */
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-button-absent {
+  background: rgb(120, 124, 126); /* Gray */
+  color: white;
+  animation: keychange 0.5s ease both; /* Same animation for all */
 }
 
 /* Responsive layout (adjusting button size for smaller screens) */
@@ -59,5 +56,23 @@
     height: 40px;
     width: 40px;
     font-size: 1rem;
+  }
+}
+
+/* Key press animation for buttons */
+@keyframes keychange {
+  0% {
+    transform: scale(0.8); /* Initial small size */
+    background-color: #393b3e;
+  }
+  45% {
+    transform: scale(0.5); /* Shrink slightly in the middle of the animation */
+    background-color: #393b3e;
+  }
+  55% {
+    transform: scale(0.5); /* Hold at small size */
+  }
+  100% {
+    transform: scale(1); /* Return to normal size */
   }
 }
