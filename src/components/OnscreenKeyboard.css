@@ -1,0 +1,63 @@
+.simple-keyboard {
+  max-width: 850px;
+  margin: 0 auto; /* Center the keyboard */
+}
+
+/* Custom Theme: myTheme1 */
+.simple-keyboard.myTheme1 {
+  background-color: #f5f5f5; /* Light background for a neutral look */
+  border-radius: 10px; /* Round corners for a softer look */
+  padding: 10px;
+}
+
+/* Styling for the keyboard buttons */
+.simple-keyboard.myTheme1 .hg-button {
+  height: 50px;
+  width: 50px; /* Keep buttons a consistent size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #6c757d; /* Neutral gray for button background */
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px; /* Slightly rounded buttons */
+  margin: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Button active state (on click or tap) */
+.simple-keyboard.myTheme1 .hg-button:active {
+  background: #495057; /* Darker gray when button is clicked */
+}
+
+/* Styling for the Enter and Backspace buttons */
+.simple-keyboard.myTheme1 .hg-button.hg-enter {
+  background-color: #28a745; /* Green background for Enter */
+}
+
+.simple-keyboard.myTheme1 .hg-button.hg-backspace {
+  background-color: #dc3545; /* Red background for Backspace */
+}
+
+/* Hover state for buttons */
+.simple-keyboard.myTheme1 .hg-button:hover {
+  background-color: #495057; /* Darker shade on hover */
+  color: white;
+}
+
+/* Style the key preview (if needed) */
+#root .simple-keyboard.myTheme1 + .simple-keyboard-preview {
+  background: #343a40; /* Dark background for preview */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Responsive layout (adjusting button size for smaller screens) */
+@media (max-width: 768px) {
+  .simple-keyboard.myTheme1 .hg-button {
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+  }
+}
